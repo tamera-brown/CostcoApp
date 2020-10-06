@@ -1,0 +1,60 @@
+<h1 class="text-center mb-3">{{title}}</title></h1>
+<form action="/api/members" method="POST" class="mb4">
+
+<div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name"class="form-control" placeholder="Enter Name" required>
+</div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+</div>
+<div class="form-group">
+    <label for=" membershipType"> Membership Type:</label>
+    <select name=" membershipType" id=" membershipType"class="form-control">
+
+   <option value="regular">Regular</option>
+    <option value="premuim">Premuim</option>
+    <option value="gold">Gold</option>
+   
+
+    </select>
+</div>
+
+  <br><br>
+<input type="submit" value="Add Member"class="btn btn-success btn-block">
+
+</form>
+<h4>Members</h4>
+ {{#each members}}
+<table class="table">
+    <thead>
+        <tr>
+             <th class="scope">Member ID</th>
+            <th class="scope">Name</th>
+             <th class="scope">Email</th>
+              <th class="scope">Membership Status</th>
+              <th class="scope">Membership Type</th>
+            
+             </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th class="row"> {{this.id}}</th>
+            <td> {{this.name}}</td>
+            <td> {{this.email}}</td>
+            <td> {{this.membershipStatus}}</td>
+             <td> {{this.membershipType}}</td>
+
+            {{!-- <td> <button className="btn btn-warning"> Uppdate Member </button> </td>
+            <td> <button className="btn btn-danger"onclick=> Delete Member </button> </td> --}}
+        </tr>
+       
+    </tbody>
+              
+       
+    
+</table>
+{{/each}}
+
+<a href="/api/members" class="btn btn-light mt-4">View API</a>
